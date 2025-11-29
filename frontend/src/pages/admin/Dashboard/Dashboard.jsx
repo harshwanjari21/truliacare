@@ -9,11 +9,11 @@ import {
   FiMapPin,
   FiEye
 } from 'react-icons/fi';
-import { dashboardService } from '../../mocks/mockService';
-import { formatDateTime, formatCurrency } from '../../utils/helpers';
-import { toast } from '../../utils/toast';
-import Loader from '../../components/UI/Loader';
-import Button from '../../components/UI/Button';
+import { dashboardService } from '../../../mocks/admin/mockService';
+import { formatDateTime, formatCurrency } from '../../../utils/shared/helpers';
+import { toast } from '../../../utils/admin/toast';
+import Loader from '../../../components/shared/UI/Loader';
+import Button from '../../../components/shared/UI/Button';
 import styles from './Dashboard.module.css';
 
 const Dashboard = () => {

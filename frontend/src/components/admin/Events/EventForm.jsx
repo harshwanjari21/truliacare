@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { FiUpload, FiX, FiImage } from 'react-icons/fi';
-import { validators, validateImageFile, getImagePreviewUrl } from '../../utils/helpers';
-import { mockCategories } from '../../mocks/mockData';
-import { toast } from '../../utils/toast';
-import Input from '../UI/Input';
-import Button from '../UI/Button';
+import { validators, validateImageFile, getImagePreviewUrl } from '../../../utils/shared/helpers';
+import { mockCategories } from '../../../mocks/shared/mockData';
+import { toast } from '../../../utils/admin/toast';
+import Input from '../../shared/UI/Input';
+import Button from '../../shared/UI/Button';
 import styles from './EventForm.module.css';
 
 const EventForm = ({ 

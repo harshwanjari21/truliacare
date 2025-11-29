@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import EventForm from '../../components/Events/EventForm';
-import { eventsService } from '../../mocks/mockService';
-import { toast } from '../../utils/toast';
+import EventForm from '../../../components/admin/Events/EventForm';
+import { eventsService } from '../../../mocks/admin/mockService';
+import { toast } from '../../../utils/admin/toast';
 import styles from './CreateEvent.module.css';
 
 const CreateEvent = () => {

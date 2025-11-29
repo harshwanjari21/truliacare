@@ -1,4 +1,4 @@
-import { mockEvents, mockBookings, mockUsers, mockRecentActivity } from './mockData.js';
+import { mockEvents, mockBookings, mockUsers, mockRecentActivity } from '../shared/mockData.js';
 
 // Simulate network delay
 const delay = (min = 200, max = 800) => 

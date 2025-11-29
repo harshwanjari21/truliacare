@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Toast from './Toast';
-import { toast as toastManager } from '../../utils/toast';
+import { toast as toastManager } from '../../../utils/admin/toast';
 import styles from './ToastContainer.module.css';
 
 const ToastContainer = () => {

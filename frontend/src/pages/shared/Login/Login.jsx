@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { authService } from '../../mocks/mockService';
-import { validators } from '../../utils/helpers';
-import { toast } from '../../utils/toast';
-import Input from '../../components/UI/Input';
-import Button from '../../components/UI/Button';
+import { authService } from '../../../mocks/admin/mockService';
+import { validators } from '../../../utils/shared/helpers';
+import { toast } from '../../../utils/admin/toast';
+import Input from '../../../components/shared/UI/Input';
+import Button from '../../../components/shared/UI/Button';
 import styles from './Login.module.css';
 
 const Login = () => {

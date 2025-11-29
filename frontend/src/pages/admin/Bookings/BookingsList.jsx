@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { FiSearch, FiFilter, FiDownload, FiEye, FiRefreshCw } from 'react-icons/fi';
-import { mockService } from '../../mocks/mockService';
-import { toast } from '../../utils/toast';
-import { formatDate, formatCurrency } from '../../utils/helpers';
-import Input from '../../components/UI/Input';
-import Button from '../../components/UI/Button';
-import Modal from '../../components/UI/Modal';
-import Loader from '../../components/Common/Loader';
-import EmptyState from '../../components/Common/EmptyState';
-import Pagination from '../../components/Common/Pagination';
+import { mockService } from '../../../mocks/admin/mockService';
+import { toast } from '../../../utils/admin/toast';
+import { formatDate, formatCurrency } from '../../../utils/shared/helpers';
+import Input from '../../../components/shared/UI/Input';
+import Button from '../../../components/shared/UI/Button';
+import Modal from '../../../components/shared/UI/Modal';
+import Loader from '../../../components/shared/UI/Loader';
+import EmptyState from '../../../components/shared/Common/EmptyState';
+import Pagination from '../../../components/shared/Common/Pagination';
 import styles from './BookingsList.module.css';
 
 const BookingsList = () => {

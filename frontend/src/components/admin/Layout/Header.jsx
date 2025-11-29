@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FiMenu, FiSearch, FiUser, FiSettings, FiLogOut } from 'react-icons/fi';
-import { authService } from '../../mocks/mockService';
-import { toast } from '../../utils/toast';
+import { authService } from '../../../mocks/admin/mockService';
+import { toast } from '../../../utils/admin/toast';
 import styles from './Header.module.css';
 
 const Header = ({ onMenuClick }) => {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import EventForm from '../../components/Events/EventForm';
-import { eventsService } from '../../mocks/mockService';
-import { toast } from '../../utils/toast';
-import Loader from '../../components/Common/Loader';
+import EventForm from '../../../components/admin/Events/EventForm';
+import { eventsService } from '../../../mocks/admin/mockService';
+import { toast } from '../../../utils/admin/toast';
+import Loader from '../../../components/shared/UI/Loader';
 import styles from './EditEvent.module.css';
 
 const EditEvent = () => {

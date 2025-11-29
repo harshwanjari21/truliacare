@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit3, FiTrash2, FiEye, FiMapPin, FiClock, FiUsers, FiMoreVertical, FiCalendar, FiDollarSign } from 'react-icons/fi';
-import { formatDateTime, formatCurrency } from '../../utils/helpers';
-import { eventsService } from '../../mocks/mockService';
-import { toast } from '../../utils/toast';
-import ConfirmDialog from '../UI/ConfirmDialog';
+import { formatDateTime, formatCurrency } from '../../../utils/shared/helpers';
+import { eventsService } from '../../../mocks/admin/mockService';
+import { toast } from '../../../utils/admin/toast';
+import ConfirmDialog from '../../shared/UI/ConfirmDialog';
 import styles from './EventCard.module.css';
 
 const EventCard = ({ event, onDeleted, viewMode = 'grid' }) => {

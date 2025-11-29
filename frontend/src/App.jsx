@@ -1,22 +1,22 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { authService } from './mocks/mockService';
+import { authService } from './mocks/admin/mockService';
 
 // Import pages
-import Login from './pages/Login/Login';
-import Dashboard from './pages/Dashboard/Dashboard';
-import EventsList from './pages/Events/EventsList';
-import CreateEvent from './pages/Events/CreateEvent';
-import EditEvent from './pages/Events/EditEvent';
-import BookingsList from './pages/Bookings/BookingsList';
-import UsersList from './pages/Users/UsersList';
+import Login from './pages/shared/Login/Login';
+import Dashboard from './pages/admin/Dashboard/Dashboard';
+import EventsList from './pages/admin/Events/EventsList';
+import CreateEvent from './pages/admin/Events/CreateEvent';
+import EditEvent from './pages/admin/Events/EditEvent';
+import BookingsList from './pages/admin/Bookings/BookingsList';
+import UsersList from './pages/admin/Users/UsersList';
 // Profile component commented out - not needed for current version, reserved for future use
-// import Profile from './pages/Profile/Profile';
+// import Profile from './pages/shared/Profile/Profile';
 // Settings component removed - not needed
 
 // Import layout
-import AdminLayout from './components/Layout/AdminLayout';
-import ToastContainer from './components/Toast/ToastContainer';
+import AdminLayout from './components/admin/Layout/AdminLayout';
+import ToastContainer from './components/admin/Toast/ToastContainer';
 
 // Protected Route component
 const ProtectedRoute = ({ children }) => {

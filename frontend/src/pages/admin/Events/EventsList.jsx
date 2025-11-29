@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { FiSearch, FiPlus, FiFilter, FiGrid, FiList } from 'react-icons/fi';
-import { eventsService } from '../../mocks/mockService';
-import { mockCategories } from '../../mocks/mockData';
-import { debounce } from '../../utils/helpers';
-import { toast } from '../../utils/toast';
-import EventCard from '../../components/Events/EventCard';
-import Pagination from '../../components/Common/Pagination';
-import Loader from '../../components/Common/Loader';
-import EmptyState from '../../components/Common/EmptyState';
+import { eventsService } from '../../../mocks/admin/mockService';
+import { mockCategories } from '../../../mocks/shared/mockData';
+import { debounce } from '../../../utils/shared/helpers';
+import { toast } from '../../../utils/admin/toast';
+import EventCard from '../../../components/admin/Events/EventCard';
+import Pagination from '../../../components/shared/Common/Pagination';
+import Loader from '../../../components/shared/UI/Loader';
+import EmptyState from '../../../components/shared/Common/EmptyState';
 import styles from './EventsList.module.css';
 
 const EventsList = () => {
