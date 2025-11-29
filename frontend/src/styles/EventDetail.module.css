@@ -1,0 +1,1015 @@
+/* EventDetail.module.css */
+
+.eventDetail {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+  background-color: #333;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logoText {
+  color: white;
+}
+
+.logoHeart {
+  color: #ff6b6b;
+}
+
+.searchBar {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 2rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userSection {
+  background-color: #444;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+/* Featured Carousel */
+.featuredCarousel {
+  max-width: 1200px;
+  margin: 2rem auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.carouselSlides {
+  display: flex;
+  width: 400%; /* 4 slides x 100% */
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.featuredSlide {
+  width: 25%; /* 100% / 4 slides */
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 2rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.slideContent {
+  flex: 1;
+  z-index: 2;
+}
+
+.slideTitle {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.slideSubtitle {
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.slideDescription {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.slideOffers {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.offerText {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.slideBadges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.slideImage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+}
+
+.slideImage img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Carousel Navigation */
+.carouselNav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+.carouselNav:hover {
+  background-color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carouselNavLeft {
+  left: 20px;
+}
+
+.carouselNavRight {
+  right: 20px;
+}
+
+/* Carousel Dots */
+.carouselDots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.carouselDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carouselDotActive {
+  background-color: white;
+}
+
+/* Stream Section */
+.streamSection {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.streamCard {
+  display: flex;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  color: white;
+  min-height: 200px;
+}
+
+.streamImage {
+  flex: 1;
+  max-width: 400px;
+}
+
+.streamImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.streamContent {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.streamBadge {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: inline-block;
+  width: fit-content;
+  margin-bottom: 1rem;
+}
+
+.streamContent h2 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: bold;
+}
+
+.streamContent p {
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  opacity: 0.9;
+}
+
+.streamCategory {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Movies Grid */
+.filterTabs {
+  display: flex;
+  gap: 1rem;
+}
+
+.activeTab {
+  color: #e74c3c;
+  border-bottom: 2px solid #e74c3c;
+  padding-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.moviesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.movieGridCard {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.movieGridCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.movieGridImage {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.movieGridImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movieGridInfo {
+  padding: 1rem;
+}
+
+.movieGridTitle {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.movieGridGenre {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0 0 0.25rem 0;
+}
+
+.movieGridLanguage {
+  font-size: 0.8rem;
+  color: #999;
+  margin: 0;
+}
+
+/* Events Section */
+.section {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+/* Override section styling specifically for events */
+.section:has(.eventsHeader) {
+  background-color: #1a1d29;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
+}
+
+.eventsHeader {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.eventsIcon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.playIcon {
+  background-color: #e74c3c;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.eventsTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 2px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.eventsSubtitle {
+  font-size: 0.9rem;
+  margin: 0.25rem 0 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.sectionTitleContainer h2 {
+  color: white;
+  margin: 0;
+  font-size: 1.8rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.sectionTitleContainer .sectionSubtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Carousel Styles */
+.carouselContainer {
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carouselButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+
+.carouselButton:hover {
+  background-color: white;
+}
+
+.carouselButtonLeft {
+  left: -20px;
+}
+
+.carouselButtonRight {
+  right: -20px;
+}
+
+/* Event Card Styles */
+.eventCard {
+  min-width: 200px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.eventCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.eventImage {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.eventImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eventBadge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: #27ae60;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.eventInfo {
+  padding: 1rem;
+}
+
+.eventTitle {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.eventLanguage {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Section Styles */
+.section {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.sectionHeader h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 0;
+}
+
+.sectionSubtitle {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.seeAll {
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.seeAll:hover {
+  text-decoration: underline;
+}
+
+/* Override seeAll color for events section */
+.section:has(.eventsHeader) .seeAll {
+  color: #ff6b6b;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Carousel Styles */
+.carouselContainer {
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carouselButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+
+.carouselButton:hover {
+  background-color: white;
+}
+
+.carouselButtonLeft {
+  left: -20px;
+}
+
+.carouselButtonRight {
+  right: -20px;
+}
+
+/* Movie Card Styles */
+.movieCard {
+  min-width: 200px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.movieCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.movieImage {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.movieImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movieRating {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+
+.movieTitle {
+  padding: 0.75rem 1rem 0.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.movieGenre {
+  padding: 0 1rem 1rem;
+  color: #666;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* Event Card Styles */
+.eventCard {
+  min-width: 180px;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.eventCard:hover {
+  transform: scale(1.05);
+}
+
+.eventImage {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.eventImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eventInfo {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  text-align: center;
+  color: white;
+}
+
+.eventTitle {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 0 0.25rem 0;
+}
+
+.eventSubtitle {
+  font-size: 0.8rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Premiere Card Styles */
+.premiereCard {
+  min-width: 200px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.premiereCard:hover {
+  transform: translateY(-4px);
+}
+
+.premiereImage {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.premiereImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.premiereBadge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: #e74c3c;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.premiereTitle {
+  padding: 0.75rem 1rem 0.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.premiereLanguage {
+  padding: 0 1rem 1rem;
+  color: #666;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* Music Card Styles */
+.musicCard {
+  min-width: 280px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.musicCard:hover {
+  transform: translateY(-4px);
+}
+
+.musicImage {
+  height: 160px;
+  overflow: hidden;
+}
+
+.musicImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.musicInfo {
+  padding: 1rem;
+}
+
+.musicTitle {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.musicSubtitle {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0 0 0.5rem 0;
+}
+
+.musicCategory {
+  background-color: #f0f0f0;
+  color: #666;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+/* Outdoor Card Styles */
+.outdoorCard {
+  min-width: 280px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.outdoorCard:hover {
+  transform: translateY(-4px);
+}
+
+.outdoorImage {
+  height: 160px;
+  overflow: hidden;
+}
+
+.outdoorImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.outdoorInfo {
+  padding: 1rem;
+}
+
+.outdoorTitle {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.outdoorDate {
+  font-size: 0.8rem;
+  color: #e74c3c;
+  margin: 0 0 0.25rem 0;
+  font-weight: bold;
+}
+
+.outdoorVenue {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .headerContent {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .searchBar {
+    margin: 0;
+    max-width: 100%;
+  }
+  
+  .featuredCarousel {
+    margin: 1rem;
+    height: 350px;
+  }
+  
+  .carouselWrapper {
+    height: 350px;
+  }
+  
+  .featuredSlide {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  .slideTitle {
+    font-size: 2rem;
+  }
+  
+  .slideOffers {
+    justify-content: center;
+  }
+  
+  .slideBadges {
+    justify-content: center;
+  }
+  
+  .carouselNav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  
+  .carouselNavLeft {
+    left: 10px;
+  }
+  
+  .carouselNavRight {
+    right: 10px;
+  }
+  
+  .streamCard {
+    flex-direction: column;
+  }
+  
+  .streamContent {
+    padding: 1.5rem;
+  }
+  
+  .streamContent h2 {
+    font-size: 1.5rem;
+  }
+  
+  .moviesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .eventsHeader {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .section:has(.eventsHeader) {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  .section {
+    padding: 0 1rem;
+  }
+  
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .carouselButtonLeft,
+  .carouselButtonRight {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .slideTitle {
+    font-size: 1.5rem;
+  }
+  
+  .carouselWrapper {
+    height: 300px;
+  }
+  
+  .featuredCarousel {
+    height: 300px;
+  }
+  
+  .streamContent h2 {
+    font-size: 1.2rem;
+  }
+  
+  .sectionHeader h2 {
+    font-size: 1.4rem;
+  }
+  
+  .moviesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
