@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit3, FiTrash2, FiEye, FiMapPin, FiClock, FiUsers, FiMoreVertical, FiCalendar, FiDollarSign } from 'react-icons/fi';
 import { formatDateTime, formatCurrency } from '../../../utils/shared/helpers';
-import { eventsService } from '../../../mocks/admin/mockService';
+import { eventsService } from '../../../mocks/admin/apiService';
 import { toast } from '../../../utils/admin/toast';
 import ConfirmDialog from '../../shared/UI/ConfirmDialog';
 import styles from './EventCard.module.css';
@@ -143,10 +143,10 @@ const EventCard = ({ event, onDeleted, viewMode = 'grid' }) => {
       <div className={styles.eventCard}>
         <div className={styles.gridImage}>
           <img 
-            src={event.thumbnail || 'https://via.placeholder.com/400x240?text=Event'} 
+            src={event.thumbnail || 'http://localhost:5000/api/placeholder/400/240'} 
             alt={event.name}
             onError={(e) => {
-              e.target.src = 'https://via.placeholder.com/400x240?text=Event';
+              e.target.src = 'http://localhost:5000/api/placeholder/400/240';
             }}
           />
           

@@ -9,7 +9,7 @@ import {
   FiMapPin,
   FiEye
 } from 'react-icons/fi';
-import { dashboardService } from '../../../mocks/admin/mockService';
+import { dashboardService } from '../../../mocks/admin/apiService';
 import { formatDateTime, formatCurrency } from '../../../utils/shared/helpers';
 import { toast } from '../../../utils/admin/toast';
 import Loader from '../../../components/shared/UI/Loader';

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import EventForm from '../../../components/admin/Events/EventForm';
-import { eventsService } from '../../../mocks/admin/mockService';
+import { eventsService } from '../../../mocks/admin/apiService';
 import { toast } from '../../../utils/admin/toast';
 import Loader from '../../../components/shared/UI/Loader';
 import styles from './EditEvent.module.css';

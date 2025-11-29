@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { authService } from './mocks/admin/mockService';
+import { authService } from './mocks/admin/apiService';
 
 // Import pages
 import Login from './pages/shared/Login/Login';

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiSearch, FiPlus, FiEdit3, FiTrash2, FiMail, FiPhone } from 'react-icons/fi';
-import { mockService } from '../../../mocks/admin/mockService';
+import { usersService } from '../../../mocks/admin/apiService';
 import { toast } from '../../../utils/admin/toast';
 import { formatDate } from '../../../utils/shared/helpers';
 import Input from '../../../components/shared/UI/Input';
@@ -44,7 +44,7 @@ const UsersList = () => {
         role: roleFilter !== 'All' ? roleFilter.toLowerCase() : ''
       };
       
-      const response = await mockService.getUsers(currentPage, 10, filters);
+      const response = await usersService.getUsers(currentPage, 10, filters);
       setUsers(response.users);
       setTotalPages(response.totalPages);
       setStats(response.stats);

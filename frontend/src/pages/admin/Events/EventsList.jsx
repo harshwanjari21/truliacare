@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { FiSearch, FiPlus, FiFilter, FiGrid, FiList } from 'react-icons/fi';
-import { eventsService } from '../../../mocks/admin/mockService';
-import { mockCategories } from '../../../mocks/shared/mockData';
+import { eventsService, categoriesService } from '../../../mocks/admin/apiService';
 import { debounce } from '../../../utils/shared/helpers';
 import { toast } from '../../../utils/admin/toast';
 import EventCard from '../../../components/admin/Events/EventCard';
@@ -14,6 +13,7 @@ import styles from './EventsList.module.css';
 const EventsList = () => {
   const navigate = useNavigate();
   const [events, setEvents] = useState([]);
+  const [categories, setCategories] = useState(['All']);
   const [loading, setLoading] = useState(true);
   const [pagination, setPagination] = useState({});
   
@@ -28,21 +28,39 @@ const EventsList = () => {
     fetchEvents({ search: searchTerm, page: 1 });
   }, 300);
 
+  const fetchCategories = async () => {
+    try {
+      const response = await categoriesService.getCategories();
+      setCategories(response.categories || ['All']);
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+      // Fallback to default categories
+      setCategories(['All', 'Music', 'Technology', 'Entertainment', 'Sports', 'Education']);
+    }
+  };
+
   const fetchEvents = async (params = {}) => {
     try {
       setLoading(true);
-      const response = await eventsService.fetchEvents({
-        search,
-        category: category === 'All' ? '' : category,
-        dateFilter,
-        page: 1,
-        limit: 12,
-        ...params
-      });
+      const response = await eventsService.getEvents(
+        params.page || 1,
+        12,
+        {
+          search: params.search || search,
+          category: (params.category || category) === 'All' ? '' : (params.category || category),
+          dateFilter: params.dateFilter || dateFilter
+        }
+      );
       
-      setEvents(response.events);
-      setPagination(response.pagination);
+      setEvents(response.events || []);
+      setPagination({
+        currentPage: response.current_page || 1,
+        totalPages: response.pages || 1,
+        totalItems: response.total || 0,
+        itemsPerPage: response.per_page || 12
+      });
     } catch (error) {
+      console.error('Error fetching events:', error);
       toast.error(error.message || 'Failed to fetch events');
     } finally {
       setLoading(false);
@@ -50,6 +68,7 @@ const EventsList = () => {
   };
 
   useEffect(() => {
+    fetchCategories();
     fetchEvents();
   }, []);
 
@@ -115,7 +134,7 @@ const EventsList = () => {
               onChange={(e) => handleCategoryChange(e.target.value)}
               className={styles.filterSelect}
             >
-              {mockCategories.map(cat => (
+              {categories.map(cat => (
                 <option key={cat} value={cat}>{cat}</option>
               ))}
             </select>

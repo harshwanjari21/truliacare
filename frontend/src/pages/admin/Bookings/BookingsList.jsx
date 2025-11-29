@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiSearch, FiFilter, FiDownload, FiEye, FiRefreshCw } from 'react-icons/fi';
-import { mockService } from '../../../mocks/admin/mockService';
+import { bookingsService } from '../../../mocks/admin/apiService';
 import { toast } from '../../../utils/admin/toast';
 import { formatDate, formatCurrency } from '../../../utils/shared/helpers';
 import Input from '../../../components/shared/UI/Input';
@@ -44,7 +44,7 @@ const BookingsList = () => {
         date: dateFilter
       };
       
-      const response = await mockService.getBookings(currentPage, 10, filters);
+      const response = await bookingsService.getBookings(currentPage, 10, filters);
       setBookings(response.bookings);
       setTotalPages(response.totalPages);
       setStats(response.stats);

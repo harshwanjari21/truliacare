@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { authService } from '../../../mocks/admin/mockService';
+import { authService } from '../../../mocks/admin/apiService';
 import { validators } from '../../../utils/shared/helpers';
 import { toast } from '../../../utils/admin/toast';
 import Input from '../../../components/shared/UI/Input';
@@ -10,8 +10,8 @@ import styles from './Login.module.css';
 const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: 'admin@gmail.com',
+    password: '1234',
     rememberMe: false
   });
   const [errors, setErrors] = useState({});
@@ -61,7 +61,10 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const result = await authService.login(formData.email, formData.password);
+      const result = await authService.login({ 
+        email: formData.email, 
+        password: formData.password 
+      });
       
       if (formData.rememberMe) {
         localStorage.setItem('remember_user', formData.email);

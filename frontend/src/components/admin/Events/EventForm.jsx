@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiUpload, FiX, FiImage } from 'react-icons/fi';
 import { validators, validateImageFile, getImagePreviewUrl } from '../../../utils/shared/helpers';
-import { mockCategories } from '../../../mocks/shared/mockData';
+import { categoriesService } from '../../../mocks/admin/apiService';
 import { toast } from '../../../utils/admin/toast';
 import Input from '../../shared/UI/Input';
 import Button from '../../shared/UI/Button';
@@ -13,6 +13,7 @@ const EventForm = ({
   onDelete = null, 
   submitLabel = 'Save Event' 
 }) => {
+  const [categories, setCategories] = useState(['Music', 'Technology', 'Entertainment', 'Sports', 'Education']);
   const [formData, setFormData] = useState({
     name: initialData?.name || '',
     category: initialData?.category || 'Music',
@@ -30,6 +31,20 @@ const EventForm = ({
   const [loading, setLoading] = useState(false);
   const [imagePreview, setImagePreview] = useState(initialData?.thumbnail || null);
   const [imageFile, setImageFile] = useState(null);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await categoriesService.getCategories();
+        setCategories(response.categories?.filter(cat => cat !== 'All') || ['Music', 'Technology', 'Entertainment', 'Sports', 'Education']);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+        // Keep default categories if API fails
+      }
+    };
+    
+    fetchCategories();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -156,7 +171,7 @@ const EventForm = ({
                     className={styles.select}
                     required
                   >
-                    {mockCategories.filter(cat => cat !== 'All').map(category => (
+                    {categories.map(category => (
                       <option key={category} value={category}>
                         {category}
                       </option>

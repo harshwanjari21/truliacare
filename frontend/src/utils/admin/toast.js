@@ -17,7 +17,7 @@ class ToastManager {
   }
 
   show(message, type = 'info', duration = 5000) {
-    const id = Date.now().toString();
+    const id = Date.now().toString() + Math.random().toString(36).substr(2, 9);
     const toast = {
       id,
       message,
