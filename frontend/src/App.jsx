@@ -10,8 +10,9 @@ import CreateEvent from './pages/Events/CreateEvent';
 import EditEvent from './pages/Events/EditEvent';
 import BookingsList from './pages/Bookings/BookingsList';
 import UsersList from './pages/Users/UsersList';
-import Profile from './pages/Profile/Profile';
-import Settings from './pages/Settings/Settings';
+// Profile component commented out - not needed for current version, reserved for future use
+// import Profile from './pages/Profile/Profile';
+// Settings component removed - not needed
 
 // Import layout
 import AdminLayout from './components/Layout/AdminLayout';
@@ -57,8 +58,9 @@ function App() {
                     <Route path="/events/edit/:id" element={<EditEvent />} />
                     <Route path="/bookings" element={<BookingsList />} />
                     <Route path="/users" element={<UsersList />} />
-                    <Route path="/profile" element={<Profile />} />
-                    <Route path="/settings" element={<Settings />} />
+                    {/* Profile route commented out - not needed for current version, reserved for future use */}
+                    {/* <Route path="/profile" element={<Profile />} /> */}
+                    {/* Settings route removed - not needed */}
                     <Route path="/" element={<Navigate to="/dashboard" replace />} />
                   </Routes>
                 </AdminLayout>

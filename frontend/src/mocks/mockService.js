@@ -4,8 +4,8 @@ import { mockEvents, mockBookings, mockUsers, mockRecentActivity } from './mockD
 const delay = (min = 200, max = 800) => 
   new Promise(resolve => setTimeout(resolve, Math.random() * (max - min) + min));
 
-// Simulate random errors (10% chance)
-const shouldSimulateError = () => Math.random() < 0.1;
+// Simulate random errors (2% chance - reduced from 10%)
+const shouldSimulateError = () => Math.random() < 0.02;
 
 // In-memory store to persist changes during session
 let eventsStore = [...mockEvents];

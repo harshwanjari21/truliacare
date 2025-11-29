@@ -6,9 +6,9 @@ import {
   FiPlus, 
   FiBookOpen, 
   FiUsers, 
-  FiBarChart, 
-  FiSettings, 
-  FiUser, 
+  // FiBarChart, // Removed - not needed
+  // FiSettings, // Removed - not needed
+  // FiUser, // Commented out - reserved for future use
   FiLogOut,
   FiX
 } from 'react-icons/fi';
@@ -22,12 +22,12 @@ const menuItems = [
   { path: '/events/create', label: 'Create Event', icon: FiPlus },
   { path: '/bookings', label: 'Bookings', icon: FiBookOpen },
   { path: '/users', label: 'Users', icon: FiUsers },
-  { path: '/analytics', label: 'Analytics', icon: FiBarChart, disabled: true },
-  { path: '/settings', label: 'Settings', icon: FiSettings },
-  { path: '/profile', label: 'Profile', icon: FiUser }
+  // Profile menu item commented out - not needed for current version, reserved for future use
+  // { path: '/profile', label: 'Profile', icon: FiUser }
+  // Settings menu item removed - not needed
 ];
 
-const Sidebar = ({ isOpen, onClose }) => {
+const Sidebar = ({ isOpen, onClose, isDesktop = false }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
@@ -47,21 +47,23 @@ const Sidebar = ({ isOpen, onClose }) => {
 
   const handleMenuClick = () => {
     // Close sidebar on mobile when menu item is clicked
-    if (window.innerWidth <= 768) {
+    if (!isDesktop && window.innerWidth <= 768) {
       onClose();
     }
   };
 
   return (
     <aside className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
-      {/* Mobile close button */}
-      <button 
-        className={styles.closeButton}
-        onClick={onClose}
-        aria-label="Close sidebar"
-      >
-        <FiX />
-      </button>
+      {/* Mobile close button - only show on mobile */}
+      {!isDesktop && (
+        <button 
+          className={styles.closeButton}
+          onClick={onClose}
+          aria-label="Close sidebar"
+        >
+          <FiX />
+        </button>
+      )}
 
       {/* Logo/Brand */}
       <div className={styles.brand}>

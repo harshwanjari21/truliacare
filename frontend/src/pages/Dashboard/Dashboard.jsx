@@ -234,24 +234,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Chart placeholder */}
-      <div className={styles.chartSection}>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>
-            <h2 className={styles.cardTitle}>Analytics Overview</h2>
-            <Link to="/analytics" className={styles.cardAction}>
-              View Details
-            </Link>
-          </div>
-          <div className={styles.chartPlaceholder}>
-            <div className={styles.chartIcon}>
-              <FiTrendingUp />
-            </div>
-            <h3>Analytics Coming Soon</h3>
-            <p>Detailed analytics and reporting features will be available soon.</p>
-          </div>
-        </div>
-      </div>
+      {/* Analytics section removed - not needed */}
     </div>
   );
 };

@@ -158,13 +158,13 @@
 /* Desktop styles */
 @media (min-width: 1024px) {
   .sidebar {
-    position: static;
-    transform: none;
+    position: fixed;
+    transform: translateX(0);
     transition: none;
   }
   
   .sidebar.open {
-    transform: none;
+    transform: translateX(0);
   }
 }
 
