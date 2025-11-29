@@ -1,0 +1,133 @@
+.loginPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  padding: var(--spacing-lg);
+}
+
+.loginContainer {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-2xl);
+}
+
+.loginHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-sm);
+  color: var(--color-text);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  margin: calc(var(--spacing-lg) * -0.5) 0;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.checkboxText {
+  font-size: 0.875rem;
+  color: var(--color-text);
+}
+
+.demoInfo {
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-md);
+  background-color: rgba(0, 107, 255, 0.05);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0, 107, 255, 0.1);
+  text-align: center;
+}
+
+.demoText {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.demoText strong {
+  color: var(--color-primary);
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .loginPage {
+    padding: var(--spacing-md);
+  }
+  
+  .loginContainer {
+    max-width: none;
+    padding: var(--spacing-xl);
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+}
+
+/* Focus improvements for accessibility */
+.checkbox:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Hover effects */
+.checkboxLabel:hover .checkboxText {
+  color: var(--color-text);
+}
+
+/* Animation for login container */
+.loginContainer {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

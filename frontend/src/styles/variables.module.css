@@ -1,0 +1,40 @@
+/* CSS Module Variables - Import these in components */
+:export {
+  /* Colors */
+  colorPrimary: var(--color-primary);
+  colorAccent: var(--color-accent);
+  colorDarkNeutral: var(--color-dark-neutral);
+  colorLightNeutral: var(--color-light-neutral);
+  colorSuccess: var(--color-success);
+  colorWarning: var(--color-warning);
+  colorDanger: var(--color-danger);
+  colorText: var(--color-text);
+  colorTextLight: var(--color-text-light);
+  colorBorder: var(--color-border);
+  colorBg: var(--color-bg);
+  colorBgSecondary: var(--color-bg-secondary);
+  
+  /* Spacing */
+  spacingXs: var(--spacing-xs);
+  spacingSm: var(--spacing-sm);
+  spacingMd: var(--spacing-md);
+  spacingLg: var(--spacing-lg);
+  spacingXl: var(--spacing-xl);
+  spacing2xl: var(--spacing-2xl);
+  
+  /* Border radius */
+  radiusSm: var(--radius-sm);
+  radiusMd: var(--radius-md);
+  radiusLg: var(--radius-lg);
+  radiusXl: var(--radius-xl);
+  
+  /* Shadows */
+  shadowSm: var(--shadow-sm);
+  shadowMd: var(--shadow-md);
+  shadowLg: var(--shadow-lg);
+  
+  /* Breakpoints */
+  breakpointMobile: var(--breakpoint-mobile);
+  breakpointTablet: var(--breakpoint-tablet);
+  breakpointDesktop: var(--breakpoint-desktop);
+}

@@ -1,0 +1,348 @@
+.profileContainer {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #666;
+  margin: 4px 0 0 0;
+}
+
+.profileGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+/* Profile Card */
+.profileCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+.securityCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  height: fit-content;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e3f2fd;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.editActions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Avatar Section */
+.avatarSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #2196f3;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.avatarInfo h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #333;
+}
+
+.avatarInfo p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+/* Form Grid */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* Bio Section */
+.bioSection {
+  margin-top: 16px;
+}
+
+.bioLabel {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.bioTextarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.2s ease;
+}
+
+.bioTextarea:focus {
+  outline: none;
+  border-color: #2196f3;
+}
+
+.bioTextarea.disabled {
+  background: #f5f5f5;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.bioTextarea::placeholder {
+  color: #999;
+}
+
+/* Security Card */
+.securityInfo {
+  margin-bottom: 24px;
+}
+
+.securityItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.securityItem:last-child {
+  border-bottom: none;
+}
+
+.securityItemContent h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 4px 0;
+  color: #333;
+}
+
+.securityItemContent p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.securityStatus {
+  flex-shrink: 0;
+}
+
+.securityBadge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #e8f5e8;
+  color: #2e7d32;
+  text-transform: uppercase;
+}
+
+.securityBadgeDisabled {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #ffebee;
+  color: #d32f2f;
+  text-transform: uppercase;
+}
+
+/* Password Change Section */
+.passwordChangeSection {
+  padding-top: 24px;
+  border-top: 1px solid #eee;
+}
+
+.passwordChangeSection h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  color: #333;
+}
+
+.passwordForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.passwordField {
+  position: relative;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.passwordToggle:hover {
+  color: #2196f3;
+}
+
+/* Error State */
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.errorState h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 0 0 16px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .profileGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .profileContainer {
+    padding: 16px;
+  }
+
+  .profileCard,
+  .securityCard {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .avatarSection {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .editActions {
+    justify-content: center;
+  }
+
+  .securityItem {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .securityStatus {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .profileContainer {
+    padding: 12px;
+  }
+
+  .profileCard,
+  .securityCard {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+
+  .avatarInfo h3 {
+    font-size: 20px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  .editActions {
+    flex-direction: column;
+    width: 100%;
+  }
+}

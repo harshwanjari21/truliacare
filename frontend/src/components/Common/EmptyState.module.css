@@ -1,0 +1,36 @@
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl);
+  text-align: center;
+  min-height: 300px;
+}
+
+.iconWrapper {
+  margin-bottom: var(--spacing-lg);
+}
+
+.icon {
+  color: var(--color-text-light);
+  opacity: 0.6;
+}
+
+.title {
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.description {
+  margin: 0 0 var(--spacing-xl) 0;
+  color: var(--color-text-light);
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+.action {
+  margin-top: var(--spacing-md);
+}

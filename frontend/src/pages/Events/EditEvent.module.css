@@ -1,0 +1,104 @@
+.editEventPage {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.pageHeader {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.pageHeader h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #1a1a1a;
+}
+
+.pageHeader p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  max-width: 500px;
+}
+
+.errorState h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+
+.errorState p {
+  font-size: 16px;
+  color: #666;
+  margin: 0 0 24px 0;
+}
+
+.errorState button {
+  padding: 12px 24px;
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.errorState button:hover {
+  background: #1976d2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .editEventPage {
+    padding: 16px;
+  }
+
+  .pageHeader h1 {
+    font-size: 24px;
+  }
+
+  .pageHeader {
+    margin-bottom: 24px;
+    text-align: left;
+  }
+
+  .errorState {
+    margin: 20px auto;
+    padding: 40px 20px;
+  }
+
+  .errorState h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .editEventPage {
+    padding: 12px;
+  }
+
+  .pageHeader h1 {
+    font-size: 20px;
+  }
+
+  .errorState {
+    padding: 30px 16px;
+  }
+}

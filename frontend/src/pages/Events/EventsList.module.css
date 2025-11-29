@@ -1,0 +1,290 @@
+.eventsListPage {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.pageHeader {
+  margin-bottom: 32px;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.titleSection h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #1a1a1a;
+}
+
+.titleSection p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+.createButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #2196f3;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.createButton:hover {
+  background: #1976d2;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 20px 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+  gap: 20px;
+}
+
+.searchSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.searchBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 300px;
+  flex: 1;
+}
+
+.searchBox svg {
+  position: absolute;
+  left: 12px;
+  color: #666;
+  z-index: 1;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 12px 10px 40px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #2196f3;
+}
+
+.filters {
+  display: flex;
+  gap: 12px;
+}
+
+.filterSelect,
+.dateFilter {
+  padding: 10px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  transition: border-color 0.2s ease;
+}
+
+.filterSelect:focus,
+.dateFilter:focus {
+  outline: none;
+  border-color: #2196f3;
+}
+
+.viewControls {
+  display: flex;
+  gap: 4px;
+  background: #f0f0f0;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.viewButton {
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  color: #666;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewButton.active {
+  background: white;
+  color: #2196f3;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.viewButton:hover:not(.active) {
+  color: #333;
+}
+
+/* Content */
+.content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.eventsGrid {
+  padding: 24px;
+}
+
+.eventsGrid.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.eventsGrid.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.emptyStateButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #2196f3;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.emptyStateButton:hover {
+  background: #1976d2;
+}
+
+.paginationWrapper {
+  padding: 20px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .headerContent {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .createButton {
+    align-self: flex-start;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .searchSection {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .searchBox {
+    max-width: none;
+  }
+
+  .filters {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .eventsGrid.grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .eventsListPage {
+    padding: 16px;
+  }
+
+  .titleSection h1 {
+    font-size: 24px;
+  }
+
+  .toolbar {
+    padding: 16px;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .filterSelect,
+  .dateFilter {
+    width: 100%;
+  }
+
+  .eventsGrid {
+    padding: 16px;
+  }
+
+  .eventsGrid.grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .eventsListPage {
+    padding: 12px;
+  }
+
+  .titleSection h1 {
+    font-size: 20px;
+  }
+
+  .toolbar {
+    padding: 12px;
+  }
+
+  .searchInput {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  .viewControls {
+    width: 100%;
+    justify-content: center;
+  }
+}

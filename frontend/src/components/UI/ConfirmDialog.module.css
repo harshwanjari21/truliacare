@@ -1,0 +1,52 @@
+.dialog {
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--spacing-lg);
+  border-radius: 50%;
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--color-danger);
+  font-size: 2rem;
+}
+
+.content {
+  margin-bottom: var(--spacing-xl);
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 var(--spacing-md);
+  color: var(--color-text);
+}
+
+.message {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column-reverse;
+  }
+  
+  .actions > * {
+    width: 100%;
+  }
+}

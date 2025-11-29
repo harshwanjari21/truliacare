@@ -1,0 +1,49 @@
+.createEventPage {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.pageHeader {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.pageHeader h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #1a1a1a;
+}
+
+.pageHeader p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .createEventPage {
+    padding: 16px;
+  }
+
+  .pageHeader h1 {
+    font-size: 24px;
+  }
+
+  .pageHeader {
+    margin-bottom: 24px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .createEventPage {
+    padding: 12px;
+  }
+
+  .pageHeader h1 {
+    font-size: 20px;
+  }
+}
