@@ -1,15 +1,17 @@
 .eventCard {
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
   overflow: hidden;
   position: relative;
+  border: 1px solid #f0f0f0;
 }
 
 .eventCard:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  border-color: #e0e0e0;
 }
 
 /* Grid View */
@@ -21,36 +23,51 @@
 
 .gridImage {
   width: 100%;
-  height: 200px;
+  height: 220px;
   overflow: hidden;
   position: relative;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 .gridImage img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
 }
 
 .eventCard:hover .gridImage img {
   transform: scale(1.05);
 }
 
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), transparent);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 12px;
+}
+
 .placeholderImage {
   width: 100%;
   height: 100%;
-  background: #f0f0f0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #999;
+  color: #666;
   flex-direction: column;
   gap: 8px;
 }
 
 .placeholderImage span {
   font-size: 14px;
+  font-weight: 500;
 }
 
 .gridContent {
@@ -58,44 +75,90 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 16px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .eventTitle {
   font-size: 18px;
-  font-weight: 600;
-  margin: 0 0 8px 0;
-  color: #333;
+  font-weight: 700;
+  margin: 0;
+  color: #1a1a1a;
   line-height: 1.3;
+  flex: 1;
+}
+
+.priceTag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.eventPrice {
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .eventMeta {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 12px;
+  gap: 12px;
 }
 
 .metaItem {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  color: #666;
+  gap: 12px;
+  padding: 8px 0;
 }
 
 .metaItem svg {
-  color: #2196f3;
+  color: #667eea;
   flex-shrink: 0;
+}
+
+.metaText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.metaLabel {
+  font-size: 12px;
+  color: #888;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metaValue {
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
 }
 
 .eventDescription {
   font-size: 14px;
-  color: #555;
-  line-height: 1.4;
+  color: #666;
+  line-height: 1.5;
   margin-bottom: 16px;
-  flex: 1;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -106,13 +169,7 @@
   align-items: center;
   margin-top: auto;
   padding-top: 16px;
-  border-top: 1px solid #eee;
-}
-
-.eventPrice {
-  font-size: 20px;
-  font-weight: 700;
-  color: #2196f3;
+  border-top: 1px solid #f0f0f0;
 }
 
 .cardActions {
@@ -120,20 +177,69 @@
   gap: 8px;
 }
 
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: white;
+  color: #666;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.actionButton:hover {
+  background: #f8f9fa;
+  border-color: #d0d0d0;
+  color: #333;
+}
+
+.editButton:hover {
+  background: #e3f2fd;
+  border-color: #2196f3;
+  color: #2196f3;
+}
+
+.viewButton:hover {
+  background: #e8f5e9;
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+.deleteButton:hover {
+  background: #ffebee;
+  border-color: #f44336;
+  color: #f44336;
+}
+
 /* List View */
 .listView {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 20px;
   padding: 20px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  transition: all 0.2s ease;
+}
+
+.listView:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #e0e0e0;
 }
 
 .listImage {
-  width: 120px;
-  height: 90px;
-  border-radius: 8px;
+  width: 140px;
+  height: 100px;
+  border-radius: 12px;
   overflow: hidden;
   flex-shrink: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 .listImage img {
@@ -142,40 +248,52 @@
   object-fit: cover;
 }
 
-.listImage .placeholderImage {
-  border-radius: 8px;
-}
-
 .listContent {
   flex: 1;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+  align-items: stretch;
+  gap: 24px;
 }
 
 .listInfo {
   flex: 1;
-}
-
-.listInfo .eventTitle {
-  margin-bottom: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .listMeta {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   flex-wrap: wrap;
+}
+
+.listMeta .metaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #666;
+  padding: 0;
+}
+
+.listMeta .metaItem svg {
+  color: #667eea;
 }
 
 .listActions {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  min-width: 180px;
 }
 
 .listActions .eventPrice {
+  font-size: 20px;
+  font-weight: 700;
+  color: #667eea;
   margin: 0;
 }
 
@@ -183,83 +301,139 @@
 .statusBadge {
   position: absolute;
   top: 12px;
-  right: 12px;
-  padding: 4px 8px;
-  border-radius: 12px;
+  left: 12px;
+  z-index: 2;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
 }
 
 .statusActive {
-  background: #e8f5e8;
-  color: #2e7d32;
+  background: rgba(76, 175, 80, 0.9);
+  color: white;
 }
 
 .statusDraft {
-  background: #fff3e0;
-  color: #f57c00;
+  background: rgba(255, 152, 0, 0.9);
+  color: white;
 }
 
 .statusCancelled {
-  background: #ffebee;
-  color: #d32f2f;
+  background: rgba(244, 67, 54, 0.9);
+  color: white;
 }
 
 /* Seats Progress */
 .seatsProgress {
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .progressLabel {
   font-size: 12px;
-  color: #666;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.progressLabel span:first-child {
+  color: #666;
+  font-weight: 500;
+}
+
+.highAvailability {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.mediumAvailability {
+  color: #ff9800;
+  font-weight: 600;
+}
+
+.lowAvailability {
+  color: #f44336;
+  font-weight: 600;
 }
 
 .progressBar {
   width: 100%;
-  height: 4px;
-  background: #f0f0f0;
-  border-radius: 2px;
+  height: 6px;
+  background: #f5f5f5;
+  border-radius: 3px;
   overflow: hidden;
 }
 
 .progressFill {
   height: 100%;
-  background: #2196f3;
   transition: width 0.3s ease;
+  border-radius: 3px;
 }
 
 .progressFillHigh {
-  background: #ff9800;
+  background: linear-gradient(90deg, #4caf50, #66bb6a);
 }
 
-.progressFillFull {
-  background: #f44336;
+.progressFillMed {
+  background: linear-gradient(90deg, #ff9800, #ffb74d);
+}
+
+.progressFillLow {
+  background: linear-gradient(90deg, #f44336, #ef5350);
+}
+
+/* Tags */
+.cardTags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  background: #f0f4ff;
+  color: #667eea;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid #e0e8ff;
+}
+
+.moreTag {
+  display: inline-block;
+  padding: 4px 8px;
+  background: #f5f5f5;
+  color: #888;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 /* Action Menu */
-.actionMenu {
-  position: relative;
-}
-
 .menuButton {
-  background: none;
+  background: rgba(255, 255, 255, 0.9);
   border: none;
   padding: 8px;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-  color: #666;
+  color: #333;
   transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
 }
 
 .menuButton:hover {
-  background: #f0f0f0;
-  color: #333;
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
 }
 
 .menuDropdown {
@@ -267,11 +441,13 @@
   top: 100%;
   right: 0;
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   z-index: 10;
-  min-width: 150px;
+  min-width: 160px;
   overflow: hidden;
+  border: 1px solid #f0f0f0;
+  margin-top: 4px;
 }
 
 .menuItem {
@@ -287,14 +463,16 @@
   font-size: 14px;
   color: #333;
   transition: background-color 0.2s ease;
+  text-decoration: none;
+  font-weight: 500;
 }
 
 .menuItem:hover {
-  background: #f5f5f5;
+  background: #f8f9fa;
 }
 
 .menuItemDanger {
-  color: #d32f2f;
+  color: #f44336;
 }
 
 .menuItemDanger:hover {
@@ -306,12 +484,11 @@
   .listView {
     flex-direction: column;
     gap: 16px;
-    text-align: center;
   }
 
   .listImage {
     width: 100%;
-    height: 150px;
+    height: 160px;
   }
 
   .listContent {
@@ -320,12 +497,13 @@
   }
 
   .listMeta {
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 16px;
   }
 
   .listActions {
-    justify-content: center;
-    width: 100%;
+    align-items: stretch;
+    min-width: auto;
   }
 
   .gridContent {
@@ -336,10 +514,22 @@
     font-size: 16px;
   }
 
-  .statusBadge {
-    top: 8px;
-    right: 8px;
-    font-size: 10px;
+  .cardHeader {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .priceTag {
+    align-self: flex-start;
+  }
+
+  .eventMeta {
+    gap: 8px;
+  }
+
+  .metaItem {
+    padding: 6px 0;
   }
 }
 
@@ -349,8 +539,7 @@
   }
 
   .cardActions {
-    flex-direction: column;
-    gap: 4px;
+    justify-content: center;
   }
 
   .listView {
@@ -360,5 +549,18 @@
   .menuDropdown {
     right: auto;
     left: 0;
+  }
+
+  .gridImage {
+    height: 180px;
+  }
+
+  .eventTitle {
+    font-size: 15px;
+  }
+
+  .priceTag {
+    padding: 6px 10px;
+    font-size: 13px;
   }
 }

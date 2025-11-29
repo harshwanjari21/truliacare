@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiEdit3, FiTrash2, FiEye, FiMapPin, FiClock, FiUsers, FiMoreVertical } from 'react-icons/fi';
+import { FiEdit3, FiTrash2, FiEye, FiMapPin, FiClock, FiUsers, FiMoreVertical, FiCalendar, FiDollarSign } from 'react-icons/fi';
 import { formatDateTime, formatCurrency } from '../../utils/helpers';
 import { eventsService } from '../../mocks/mockService';
 import { toast } from '../../utils/toast';
@@ -27,78 +27,101 @@ const EventCard = ({ event, onDeleted, viewMode = 'grid' }) => {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case 'Active': return 'success';
-      case 'Closed': return 'danger';
-      default: return 'warning';
+      case 'Active': return 'statusActive';
+      case 'Closed': return 'statusCancelled';
+      default: return 'statusDraft';
     }
   };
 
   const availabilityPercentage = (event.availableSeats / event.totalSeats) * 100;
+  const isLowAvailability = availabilityPercentage < 20;
+  const isMediumAvailability = availabilityPercentage < 50;
+
+  // Format date and time separately
+  const eventDate = new Date(event.date);
+  const formattedDate = eventDate.toLocaleDateString('en-US', { 
+    month: 'short', 
+    day: 'numeric', 
+    year: 'numeric' 
+  });
+  const formattedTime = eventDate.toLocaleTimeString('en-US', { 
+    hour: 'numeric', 
+    minute: '2-digit',
+    hour12: true 
+  });
 
   if (viewMode === 'list') {
     return (
       <>
-        <div className={styles.eventListItem}>
-          <div className={styles.eventImage}>
+        <div className={styles.listView}>
+          <div className={styles.listImage}>
             <img 
-              src={event.thumbnail || 'https://via.placeholder.com/80x60?text=Event'} 
+              src={event.thumbnail || 'https://via.placeholder.com/120x90?text=Event'} 
               alt={event.name}
               onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/80x60?text=Event';
+                e.target.src = 'https://via.placeholder.com/120x90?text=Event';
               }}
             />
           </div>
 
-          <div className={styles.eventInfo}>
-            <h3 className={styles.eventTitle}>{event.name}</h3>
-            <div className={styles.eventMeta}>
-              <span className={styles.metaItem}>
-                <FiClock size={14} />
-                {formatDateTime(event.date)}
-              </span>
-              <span className={styles.metaItem}>
-                <FiMapPin size={14} />
-                {event.venue}
-              </span>
-              <span className={styles.metaItem}>
-                <FiUsers size={14} />
-                {event.availableSeats}/{event.totalSeats} available
-              </span>
+          <div className={styles.listContent}>
+            <div className={styles.listInfo}>
+              <h3 className={styles.eventTitle}>{event.name}</h3>
+              <div className={styles.listMeta}>
+                <span className={styles.metaItem}>
+                  <FiCalendar size={14} />
+                  {formattedDate}
+                </span>
+                <span className={styles.metaItem}>
+                  <FiClock size={14} />
+                  {formattedTime}
+                </span>
+                <span className={styles.metaItem}>
+                  <FiMapPin size={14} />
+                  {event.venue}
+                </span>
+                <span className={styles.metaItem}>
+                  <FiUsers size={14} />
+                  {event.availableSeats}/{event.totalSeats} seats
+                </span>
+              </div>
             </div>
-          </div>
 
-          <div className={styles.eventPrice}>
-            {formatCurrency(event.price)}
-          </div>
+            <div className={styles.listActions}>
+              <div className={styles.eventPrice}>
+                {formatCurrency(event.price)}
+              </div>
+              
+              <div className={styles.statusBadge}>
+                <span className={`${styles.badge} ${styles[getStatusColor(event.status)]}`}>
+                  {event.status}
+                </span>
+              </div>
 
-          <div className={styles.eventStatus}>
-            <span className={`${styles.statusBadge} ${styles[getStatusColor(event.status)]}`}>
-              {event.status}
-            </span>
-          </div>
-
-          <div className={styles.eventActions}>
-            <Link 
-              to={`/events/edit/${event.id}`}
-              className={styles.actionButton}
-              title="Edit event"
-            >
-              <FiEdit3 size={16} />
-            </Link>
-            <Link 
-              to={`/bookings?eventId=${event.id}`}
-              className={styles.actionButton}
-              title="View bookings"
-            >
-              <FiEye size={16} />
-            </Link>
-            <button
-              onClick={() => setShowDeleteDialog(true)}
-              className={`${styles.actionButton} ${styles.danger}`}
-              title="Delete event"
-            >
-              <FiTrash2 size={16} />
-            </button>
+              <div className={styles.cardActions}>
+                <Link 
+                  to={`/events/edit/${event.id}`}
+                  className={`${styles.actionButton} ${styles.editButton}`}
+                  title="Edit event"
+                >
+                  <FiEdit3 size={16} />
+                </Link>
+                <Link 
+                  to={`/bookings?eventId=${event.id}`}
+                  className={`${styles.actionButton} ${styles.viewButton}`}
+                  title="View bookings"
+                >
+                  <FiEye size={16} />
+                </Link>
+                <button
+                  onClick={() => setShowDeleteDialog(true)}
+                  className={`${styles.actionButton} ${styles.deleteButton}`}
+                  title="Delete event"
+                >
+                  <FiTrash2 size={16} />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -118,16 +141,16 @@ const EventCard = ({ event, onDeleted, viewMode = 'grid' }) => {
   return (
     <>
       <div className={styles.eventCard}>
-        <div className={styles.cardImage}>
+        <div className={styles.gridImage}>
           <img 
-            src={event.thumbnail || 'https://via.placeholder.com/300x200?text=Event'} 
+            src={event.thumbnail || 'https://via.placeholder.com/400x240?text=Event'} 
             alt={event.name}
             onError={(e) => {
-              e.target.src = 'https://via.placeholder.com/300x200?text=Event';
+              e.target.src = 'https://via.placeholder.com/400x240?text=Event';
             }}
           />
           
-          <div className={styles.cardOverlay}>
+          <div className={styles.imageOverlay}>
             <button
               onClick={() => setShowMenu(!showMenu)}
               className={styles.menuButton}
@@ -136,7 +159,7 @@ const EventCard = ({ event, onDeleted, viewMode = 'grid' }) => {
             </button>
             
             {showMenu && (
-              <div className={styles.contextMenu}>
+              <div className={styles.menuDropdown}>
                 <Link 
                   to={`/events/edit/${event.id}`}
                   className={styles.menuItem}
@@ -158,7 +181,7 @@ const EventCard = ({ event, onDeleted, viewMode = 'grid' }) => {
                     setShowMenu(false);
                     setShowDeleteDialog(true);
                   }}
-                  className={`${styles.menuItem} ${styles.danger}`}
+                  className={`${styles.menuItem} ${styles.menuItemDanger}`}
                 >
                   <FiTrash2 size={14} />
                   Delete
@@ -174,35 +197,67 @@ const EventCard = ({ event, onDeleted, viewMode = 'grid' }) => {
           </div>
         </div>
 
-        <div className={styles.cardContent}>
+        <div className={styles.gridContent}>
           <div className={styles.cardHeader}>
-            <h3 className={styles.cardTitle}>{event.name}</h3>
-            <span className={styles.cardPrice}>{formatCurrency(event.price)}</span>
-          </div>
-
-          <div className={styles.cardMeta}>
-            <div className={styles.metaRow}>
-              <FiClock size={14} />
-              <span>{formatDateTime(event.date)}</span>
-            </div>
-            <div className={styles.metaRow}>
-              <FiMapPin size={14} />
-              <span>{event.venue}</span>
-            </div>
-            <div className={styles.metaRow}>
-              <FiUsers size={14} />
-              <span>{event.availableSeats} / {event.totalSeats} seats</span>
+            <h3 className={styles.eventTitle}>{event.name}</h3>
+            <div className={styles.priceTag}>
+              <FiDollarSign size={16} />
+              <span className={styles.eventPrice}>{formatCurrency(event.price)}</span>
             </div>
           </div>
 
-          <div className={styles.availabilityBar}>
-            <div className={styles.availabilityLabel}>
-              <span>Availability</span>
-              <span>{Math.round(availabilityPercentage)}%</span>
+          <div className={styles.eventMeta}>
+            <div className={styles.metaItem}>
+              <FiCalendar size={16} />
+              <div className={styles.metaText}>
+                <span className={styles.metaLabel}>Date</span>
+                <span className={styles.metaValue}>{formattedDate}</span>
+              </div>
+            </div>
+            
+            <div className={styles.metaItem}>
+              <FiClock size={16} />
+              <div className={styles.metaText}>
+                <span className={styles.metaLabel}>Time</span>
+                <span className={styles.metaValue}>{formattedTime}</span>
+              </div>
+            </div>
+            
+            <div className={styles.metaItem}>
+              <FiMapPin size={16} />
+              <div className={styles.metaText}>
+                <span className={styles.metaLabel}>Venue</span>
+                <span className={styles.metaValue}>{event.venue}</span>
+              </div>
+            </div>
+            
+            <div className={styles.metaItem}>
+              <FiUsers size={16} />
+              <div className={styles.metaText}>
+                <span className={styles.metaLabel}>Seats</span>
+                <span className={styles.metaValue}>{event.availableSeats} / {event.totalSeats}</span>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.seatsProgress}>
+            <div className={styles.progressLabel}>
+              <span>Seat Availability</span>
+              <span className={`${
+                isLowAvailability ? styles.lowAvailability : 
+                isMediumAvailability ? styles.mediumAvailability : 
+                styles.highAvailability
+              }`}>
+                {Math.round(availabilityPercentage)}% available
+              </span>
             </div>
             <div className={styles.progressBar}>
               <div 
-                className={styles.progressFill}
+                className={`${styles.progressFill} ${
+                  isLowAvailability ? styles.progressFillLow : 
+                  isMediumAvailability ? styles.progressFillMed : 
+                  styles.progressFillHigh
+                }`}
                 style={{ width: `${availabilityPercentage}%` }}
               />
             </div>

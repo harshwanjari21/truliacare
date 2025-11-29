@@ -98,21 +98,23 @@ const UsersList = () => {
   };
 
   const getRoleBadgeClass = (role) => {
+    if (!role) return styles.roleBadge;
     const baseClass = styles.roleBadge;
     const roleClass = {
       admin: styles.roleAdmin,
       user: styles.roleUser
     }[role.toLowerCase()];
-    return `${baseClass} ${roleClass}`;
+    return `${baseClass} ${roleClass || ''}`;
   };
 
   const getStatusBadgeClass = (status) => {
+    if (!status) return styles.statusBadge;
     const baseClass = styles.statusBadge;
     const statusClass = {
       active: styles.statusActive,
       inactive: styles.statusInactive
     }[status.toLowerCase()];
-    return `${baseClass} ${statusClass}`;
+    return `${baseClass} ${statusClass || ''}`;
   };
 
   if (loading && users.length === 0) {
@@ -132,9 +134,9 @@ const UsersList = () => {
         <div className={styles.headerActions}>
           <Button
             variant="primary"
-            icon={FiPlus}
             onClick={() => toast.info('Add user feature coming soon')}
           >
+            <FiPlus />
             Add User
           </Button>
         </div>
@@ -169,7 +171,6 @@ const UsersList = () => {
               placeholder="Search users..."
               value={searchTerm}
               onChange={handleSearch}
-              icon={FiSearch}
               fullWidth
             />
           </div>
@@ -196,10 +197,11 @@ const UsersList = () => {
       <div className={styles.tableCard}>
         {users.length === 0 ? (
           <EmptyState
-            icon={FiSearch}
             message="No users found"
             description="Try adjusting your search terms or filters"
-          />
+          >
+            <FiSearch size={48} />
+          </EmptyState>
         ) : (
           <div className={styles.tableContainer}>
             <table className={styles.table}>
@@ -255,19 +257,19 @@ const UsersList = () => {
                         <Button
                           variant="ghost"
                           size="small"
-                          icon={FiEdit3}
                           onClick={() => toast.info('Edit user feature coming soon')}
                         >
+                          <FiEdit3 />
                           Edit
                         </Button>
                         {user.role !== 'admin' && (
                           <Button
                             variant="ghost"
                             size="small"
-                            icon={FiTrash2}
                             onClick={() => confirmDeleteUser(user)}
                             className={styles.deleteButton}
                           >
+                            <FiTrash2 />
                             Delete
                           </Button>
                         )}
@@ -357,9 +359,9 @@ const UsersList = () => {
               </Button>
               <Button
                 variant="outline"
-                icon={FiEdit3}
                 onClick={() => toast.info('Edit user feature coming soon')}
               >
+                <FiEdit3 />
                 Edit User
               </Button>
             </div>

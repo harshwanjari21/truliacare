@@ -206,29 +206,29 @@ const Profile = () => {
             {!editing ? (
               <Button
                 variant="outline"
-                icon={FiEdit3}
                 onClick={() => setEditing(true)}
               >
+                <FiEdit3 />
                 Edit
               </Button>
             ) : (
               <div className={styles.editActions}>
                 <Button
                   variant="primary"
-                  icon={FiSave}
                   onClick={handleUpdateProfile}
                   loading={updating}
                   disabled={updating}
                   size="small"
                 >
+                  <FiSave />
                   Save
                 </Button>
                 <Button
                   variant="ghost"
-                  icon={FiX}
                   onClick={handleCancelEdit}
                   size="small"
                 >
+                  <FiX />
                   Cancel
                 </Button>
               </div>
@@ -253,7 +253,6 @@ const Profile = () => {
               onChange={handleInputChange}
               error={errors.name}
               disabled={!editing}
-              icon={FiUser}
               fullWidth
               required
             />
@@ -266,7 +265,6 @@ const Profile = () => {
               onChange={handleInputChange}
               error={errors.email}
               disabled={!editing}
-              icon={FiMail}
               fullWidth
               required
             />
@@ -279,7 +277,6 @@ const Profile = () => {
               onChange={handleInputChange}
               error={errors.phone}
               disabled={!editing}
-              icon={FiPhone}
               fullWidth
               placeholder="+1 (555) 123-4567"
             />
@@ -291,7 +288,6 @@ const Profile = () => {
               onChange={handleInputChange}
               error={errors.address}
               disabled={!editing}
-              icon={FiMapPin}
               fullWidth
               placeholder="123 Main St, City, State 12345"
             />

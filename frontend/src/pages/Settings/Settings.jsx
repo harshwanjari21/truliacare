@@ -392,9 +392,9 @@ const Settings = () => {
               </div>
               <Button
                 variant="outline"
-                icon={FiDownload}
                 onClick={() => setShowExportDialog(true)}
               >
+                <FiDownload />
                 Export
               </Button>
             </div>
@@ -440,10 +440,10 @@ const Settings = () => {
               </div>
               <Button
                 variant="danger"
-                icon={FiTrash2}
                 onClick={() => setShowDeleteDialog(true)}
               >
-                Delete
+                <FiTrash2 />
+                Delete All Data
               </Button>
             </div>
           </div>

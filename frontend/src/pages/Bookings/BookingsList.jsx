@@ -115,17 +115,17 @@ const BookingsList = () => {
         <div className={styles.headerActions}>
           <Button
             variant="outline"
-            icon={FiDownload}
             onClick={exportBookings}
           >
+            <FiDownload />
             Export
           </Button>
           <Button
             variant="outline"
-            icon={FiRefreshCw}
             onClick={() => loadBookings()}
             loading={loading}
           >
+            <FiRefreshCw />
             Refresh
           </Button>
         </div>
@@ -160,7 +160,6 @@ const BookingsList = () => {
               placeholder="Search bookings..."
               value={searchTerm}
               onChange={handleSearch}
-              icon={FiSearch}
               fullWidth
             />
           </div>
@@ -197,10 +196,11 @@ const BookingsList = () => {
       <div className={styles.tableCard}>
         {bookings.length === 0 ? (
           <EmptyState
-            icon={FiFilter}
             message="No bookings found"
             description="Try adjusting your filters or search terms"
-          />
+          >
+            <FiFilter size={48} />
+          </EmptyState>
         ) : (
           <div className={styles.tableContainer}>
             <table className={styles.table}>
@@ -247,9 +247,9 @@ const BookingsList = () => {
                         <Button
                           variant="ghost"
                           size="small"
-                          icon={FiEye}
                           onClick={() => viewBookingDetails(booking)}
                         >
+                          <FiEye />
                           View
                         </Button>
                       </div>

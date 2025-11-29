@@ -395,11 +395,57 @@ export const mockService = {
   fetchEventById: eventsService.fetchEventById,
   
   // Bookings methods
-  getBookings: bookingsService.fetchBookings,
+  getBookings: async (page = 1, limit = 10, filters = {}) => {
+    const response = await bookingsService.fetchBookings({ 
+      page, 
+      limit, 
+      eventId: filters.eventId || '', 
+      dateFilter: filters.date || '' 
+    });
+    
+    // Calculate stats from bookings
+    const allBookings = [...bookingsStore];
+    const stats = {
+      total: allBookings.length,
+      confirmed: allBookings.filter(b => b.status === 'confirmed').length,
+      pending: allBookings.filter(b => b.status === 'pending').length,
+      cancelled: allBookings.filter(b => b.status === 'cancelled').length,
+      totalRevenue: allBookings
+        .filter(b => b.status === 'confirmed')
+        .reduce((sum, booking) => sum + (booking.totalAmount || 0), 0)
+    };
+    
+    return {
+      bookings: response.bookings,
+      totalPages: response.pagination.totalPages,
+      stats
+    };
+  },
   exportBookings: () => Promise.resolve({ success: true }),
   
   // Users methods
-  getUsers: usersService.fetchUsers,
+  getUsers: async (page = 1, limit = 10, filters = {}) => {
+    const response = await usersService.fetchUsers({ 
+      page, 
+      limit, 
+      search: filters.search || ''
+    });
+    
+    // Calculate stats from users
+    const allUsers = [...usersStore];
+    const stats = {
+      total: allUsers.length,
+      active: allUsers.filter(u => u.status === 'active').length,
+      inactive: allUsers.filter(u => u.status === 'inactive').length,
+      admins: allUsers.filter(u => u.role === 'admin').length
+    };
+    
+    return {
+      users: response.users,
+      totalPages: response.pagination.totalPages,
+      stats
+    };
+  },
   deleteUser: () => Promise.resolve({ success: true }),
   toggleUserStatus: () => Promise.resolve({ success: true }),
   
